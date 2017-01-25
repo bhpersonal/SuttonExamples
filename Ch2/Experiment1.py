@@ -5,12 +5,18 @@ import random
 def experiment1():
 
 
-    n = 100
-    trials = 1000000
+    n = 1000
+    trials = 10000
     ds = [(random.gauss(0, 100), (random.gauss(0, 100))) for i in xrange(n)]
 
     bandit = NGuassianArmedBandit(ds)
     players = [RandomPlayer(),
+               AverageGreedyEpsilonPlayer(0),
+               AverageGreedyEpsilonPlayer(0),
+               AverageGreedyEpsilonPlayer(0),
+               AverageGreedyEpsilonPlayer(0),
+               AverageGreedyEpsilonPlayer(0),
+               AverageGreedyEpsilonPlayer(0),
                AverageGreedyEpsilonPlayer(0.00001),
                AverageGreedyEpsilonPlayer(0.0001),
                AverageGreedyEpsilonPlayer(0.001),
